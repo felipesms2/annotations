@@ -245,3 +245,9 @@ https://medium.com/@agitari65/disabling-csrf-protection-in-laravel-11-a-step-by-
 ```shell
 php artisan make:trait MyTrait
 ```
+
+# Run project from cloned repo
+
+```bash
+composer install; npm install; cp .env.example .env; touch database/database.sqlite; php artisan migrate; php artisan key:generate; php -S localhost:8000 -t public
+```
