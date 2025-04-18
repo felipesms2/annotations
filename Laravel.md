@@ -89,6 +89,12 @@ User::factory()->times(5)->create();
 App\Models\User::factory()->count(1)->create();
 App\Models\Secret::factory()->create(['user_id' => 2]);
 User::with('secrets')->get();
+
+
+
+php artisan tinker --execute="app()->make(App\Services\PostExportService::class)->export();"
+
+
 ```
 
 ## Seeders
