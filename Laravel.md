@@ -261,5 +261,50 @@ composer install; npm install; cp .env.example .env; touch database/database.sql
 # Symfony webCralwer
 
 ```bash
-composer require symfony/webcrawler symfony/css-selector guzzlehttp/guzzle
+    composer require symfony/webcrawler symfony/css-selector guzzlehttp/guzzle
+```
+ ## Sample Scraping
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Symfony\Component\DomCrawler\Crawler;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
+$url = "https://www.justjared.com/2025/04/28/indya-moore-meadow-walker-julez-smith-more-celebrate-mytheresa-x-pucci-capsule-collection/";
+
+$client = new Client([
+    'headers' => [
+        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
+    ]
+]);
+
+try {
+    $response = $client->request('GET', $url);
+    $html = $response->getBody()->getContents();
+    
+    $crawler = new Crawler($html);
+    
+    // Find the article div (adjust the selector as needed)
+    $articleDiv = $crawler->filter('div.entry');
+    
+    if ($articleDiv->count() > 0) {
+        // Get all paragraphs within the article div
+        $paragraphs = $articleDiv->filter('p');
+        
+        $articleText = '';
+        $paragraphs->each(function (Crawler $node) use (&$articleText) {
+            $articleText .= $node->text() . "\n\n";
+        });
+        
+        echo trim($articleText);
+    } else {
+        echo "Article content not found.";
+    }
+} catch (RequestException $e) {
+    echo "Error fetching the URL: " . $e->getMessage();
+}
+?>
 ```
