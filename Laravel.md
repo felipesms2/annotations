@@ -261,7 +261,7 @@ composer install; npm install; cp .env.example .env; touch database/database.sql
 # Symfony webCralwer
 
 ```bash
-    composer require symfony/webcrawler symfony/css-selector guzzlehttp/guzzle
+    composer require symfony/dom-crawler symfony/css-selector guzzlehttp/guzzle
 ```
  ## Sample Scraping
 
