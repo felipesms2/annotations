@@ -257,3 +257,9 @@ php artisan make:trait MyTrait
 ```bash
 composer install; npm install; cp .env.example .env; touch database/database.sqlite; php artisan migrate; php artisan key:generate; php -S localhost:8000 -t public
 ```
+
+# Symfony webCralwer
+
+```bash
+composer require symfony/webcrawler symfony/css-selector guzzlehttp/guzzle
+```
