@@ -44,6 +44,10 @@ For Docker and Virtual Machines even local runtime enviroment that need php back
   net-tools \ <br>
   iproute2 -y  ; <br> \
  a2enmod rewrite ; <br> \
+ a2enmod ssl ; <br> \
+ a2enmod headers ; <br> \
+ a2enmod proxy ; <br> \
+
  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash ; <br> \
  systemctl restart apache2 <br>
  
@@ -96,5 +100,14 @@ bind to 0.0.0.0
 # full permission www user
 
 sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '';" && sudo mysql -u root -e "FLUSH PRIVILEGES;"
+
+# Apache No Cache
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>
+ <!-- must enable mod_headers -->
 
 
