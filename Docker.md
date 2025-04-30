@@ -135,12 +135,17 @@ services:
     volumes:
     - ./website:/usr/local/apache2/htdocs
 
-# One Script install
+# Single Script install
 
 curl -fsSL https://get.docker.com | sh ; sudo usermod -aG docker ${USER}; su - ${USER} ; id -nG ; sudo usermod -aG docker ${USER}
 
 
 # Container Orchestration
+
+# Remove all containers
+
+docker rm -f $(docker ps -aq)
+
 
 
 
