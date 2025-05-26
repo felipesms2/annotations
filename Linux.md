@@ -49,3 +49,9 @@ https://askubuntu.com/questions/1392414/how-to-disable-temporary-dynamic-ipv6-ad
 -t7z : Specifies the archive type (7z format).
 -mx0 : Sets the compression level to 0 (no compression).
 -v1900m : Splits the archive into volumes of 1900 MB each.
+
+# Link a executable to system path
+
+```bash
+sudo ln -s /home/d/applications/Postman/Postman /usr/local/bin/postman
+```
