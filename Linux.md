@@ -55,3 +55,26 @@ https://askubuntu.com/questions/1392414/how-to-disable-temporary-dynamic-ipv6-ad
 ```bash
 sudo ln -s /home/d/applications/Postman/Postman /usr/local/bin/postman
 ```
+
+# Add application to Launcher
+
+  ## 1. Create a Symbolic Link for Terminal Access
+
+  ```bash
+  sudo nano /usr/share/applications/postman.desktop
+  ```
+  ## 2. Add Postman to GNOME Launcher (Application Menu)
+
+  ```bash
+  echo -e "[Desktop Entry]\nName=Postman\nComment=API Development Environment\nExec=/home/d/applications/Postman/Postman\nIcon=/home/d/applications/Postman/app/resources/app/assets/icon.png\nTerminal=false\nType=Application\nCategories=Development;" > /usr/share/applications/postman.desktop
+  chmod +x /usr/share/applications/postman.desktop
+  sudo update-desktop-database
+  # [Desktop Entry]
+  # Name=Postman
+  # Comment=API Development Environment
+  # Exec=/home/d/applications/Postman/Postman
+  # Icon=/home/d/applications/Postman/app/resources/app/assets/icon.png
+  # Terminal=false
+  # Type=Application
+  # Categories=Development;
+  ```
