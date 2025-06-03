@@ -78,3 +78,9 @@ sudo ln -s /home/d/applications/Postman/Postman /usr/local/bin/postman
   # Type=Application
   # Categories=Development;
   ```
+
+  # Zip a file with YYYYMMDD_HHMMSS.zip
+
+  ```bash
+  zip -r "jornal3_backup_$(date +%Y-%m-%d_%H_%M_%S).zip" jornal3
+  ```
