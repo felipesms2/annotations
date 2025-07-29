@@ -308,3 +308,16 @@ try {
 }
 ?>
 ```
+## add fields via artisan tinker
+
+```php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+
+Schema::table('reuters_sources', function (Blueprint $table) {
+    $table->string('medium_resolution_image_id')->nullable();
+    $table->text('medium_resolution_image_url')->nullable();
+});
+
+```
