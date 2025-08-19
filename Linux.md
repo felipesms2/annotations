@@ -84,3 +84,16 @@ sudo ln -s /home/d/applications/Postman/Postman /usr/local/bin/postman
   ```bash
   zip -r "jornal3_backup_$(date +%Y-%m-%d_%H_%M_%S).zip" jornal3
   ```
+
+  # Set zsh as default shell
+
+  ```bash
+  chsh -s $(which zsh)
+  ```
+
+  # Install zsh and oh-my-zsh
+
+  ```bash
+  sudo apt install zsh -y
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ```
