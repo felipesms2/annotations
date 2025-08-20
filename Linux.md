@@ -97,3 +97,9 @@ sudo ln -s /home/d/applications/Postman/Postman /usr/local/bin/postman
   sudo apt install zsh -y
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   ```
+
+  # Tmux daemon session with command
+
+  ```bash
+  tmux new-session -d -s "name" "command"
+  ```
